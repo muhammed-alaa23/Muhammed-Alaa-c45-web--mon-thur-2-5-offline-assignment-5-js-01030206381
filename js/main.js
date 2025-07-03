@@ -70,9 +70,12 @@ btnBox.addEventListener("click",function(){
 var api="68bf994bb10a44b68c0183925252706";
 
 async function displaycity(cityName){
-var response =await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${api}&q=${cityName}&days=3&aqi=no&alerts=no`)
+var response =await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${cityName}&days=3&aqi=no&alerts=no`)
 var data =await response.json();
 
+
+
+if(!data.error){
 var location = data.location.name;
 var degree = data.current.temp_c;
 var is_Day = data.current.is_day;
@@ -141,7 +144,7 @@ tomorrow_day.innerHTML=dayNames[Tomorrow_day1];
 third_day.innerHTML=dayNames[Third_day1];
 
 
-
+}
 
 
 
